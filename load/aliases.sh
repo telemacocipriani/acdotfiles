@@ -63,14 +63,6 @@ alias pi='pod install --repo-update'
 quitxcodecmd="tell application \"Xcode\" to quit"
 alias quitxcode="osascript -e '$quitxcodecmd'"
 
-# Filesystem shorcuts
-alias goios="cd /Users/$ANDREA_USERNAME/code/spotify/acipriani/client-ios"
-alias gospt="cd /Users/$ANDREA_USERNAME/code/spotify/acipriani/"
-alias gotuist="cd /Users/$ANDREA_USERNAME/code/github/andreacipriani/tuist"
-alias gogithub="cd /Users/$ANDREA_USERNAME/code/github/andreacipriani"
-alias goclient="cd /Users/$ANDREA_USERNAME/code/spotify/acipriani/client"
-alias goandroid="cd /Users/$ANDREA_USERNAME/code/spotify/acipriani/client-android"
-
 # Rails - unless you are starting a new project, better to always prepend bundle.
 alias rails="bundle exec rails"
 

@@ -7,11 +7,7 @@ oh_my_zsh_themes_root = "#{oh_my_zsh_root}/themes"
 oh_my_zsh_custom_plugins_root = "#{oh_my_zsh_root}/custom/plugins"
 
 # Start Install script:
-puts "Running install.rb".info
-
-print "Is this a personal or corporate installation? (personal/corporate): "
-corporate = gets.chomp.downcase == "corporate"
-puts (corporate ? "Corporate installation: casks will be skipped" : "Personal installation: all packages will be installed").info
+puts "Running install.rb (bot setup: lean, CLI/AI-focused, no GUI apps)".info
 
 # Install brew
 if system("command -v brew > /dev/null")
@@ -47,14 +43,6 @@ if File.exist?("Gemfile")
         next if gem_name.empty?
         system("gem", "install", gem_name, "--no-document", "--user-install")
     end
-end
-
-# Install fonts (Optional: maybe use brew for this now?)
-if File.directory?(ENV['HOME']+'/powerline-fonts')
-    puts "Powerline-fonts are installed".success
-else
-    puts "Installing powerline fonts".info
-    system("git clone https://github.com/powerline/fonts.git ~/powerline-fonts && cd ~/powerline-fonts && ./install.sh")
 end
 
 # Install ohmyzsh custom plugins
@@ -105,36 +93,8 @@ else
     system("rsync -r backups/Xcode/ #{ENV['HOME']}/Library/Developer/Xcode/")
 end
 
-# Install VS Code extensions
-if File.exist?('backups/vscode/extensions.txt')
-    if system("command -v code > /dev/null 2>&1")
-        puts "Installing VS Code extensions".info
-        installed_extensions = `code --list-extensions`.split("\n")
-        File.readlines('backups/vscode/extensions.txt').each do |line|
-            extension = line.strip
-            if installed_extensions.include?(extension)
-                puts "#{extension} is already installed".success
-            else
-                puts "Installing #{extension}".info
-                system("code --install-extension #{extension}")
-            end
-        end
-    else
-        puts "Skipping VS Code extensions: 'code' CLI not found. Install VS Code and run 'Install code command in PATH' from the Command Palette, then re-run this script.".warning
-    end
-end
-
 # Run brew bundle
 if File.exist?("Brewfile")
     puts "Running brew bundle".info
-    if corporate
-        require 'tempfile'
-        Tempfile.create('Brewfile') do |f|
-            File.readlines("Brewfile").each { |l| f.write(l) unless l.strip.start_with?("cask") }
-            f.flush
-            system("brew bundle --file=#{f.path}")
-        end
-    else
-        system("brew bundle")
-    end
+    system("brew bundle")
 end

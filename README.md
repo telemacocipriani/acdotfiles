@@ -1,31 +1,25 @@
-# @AndreaCipriani dotfiles
+# @telemacocipriani dotfiles
+
+Bot setup: lean, CLI/AI-focused. Fork of [@AndreaCipriani's dotfiles](https://github.com/andreacipriani/acdotfiles), stripped of personal GUI apps and mobile/Spotify-specific tooling.
 
 ## Principles:
 
 - Run `ruby install.rb` to get all your apps and tools installed
 	- The installation is idempotent, you can run it multiple times and you should be in the same state
+	- Mostly CLI tooling; Alfred, Telegram, and Rectangle are the only GUI casks kept
 - Everything under `~/dotfiles/load/` gets loaded into your terminal
 	- `/load/path.sh` is loaded first
 	- zsh automcompletion suggestions are only inside `~/dotfiles/autocompletion`
 - All files under `work-encrypted/` will be encrypted
-- Run `ruby scripts/backup.rb` to save all changes (includes Gems, Brewfile, Xcode UserData, and VS Code extensions)
+- Run `ruby scripts/backup.rb` to save all changes (Gems, Brewfile, Xcode UserData)
 	- Xcode: backs up `~/Library/Developer/Xcode/` into `backups/Xcode/`; only `UserData/` (CodeSnippets, FontAndColorThemes, KeyBindings) and Templates are tracked in git — generated files are gitignored
-	- VS Code: extensions are saved to `backups/vscode/extensions.txt`; settings must be synced manually via the Settings Sync extension
 
 ## Installation order:
 
 - macOS
 - ruby
 - Clone the repo and run `ruby install.rb`
-- Setup iTerm by setting the theme (CMD+I, Colors tab, Load Presets, Import) and configuration (Profiles, Other Actions, Import JSON Profiles, select iterm/AndreaCipriani.json)
-- Setup Visual Studio Code by syncing with account
-- Setup Alfred
-
-## TODO:
-
-- Backup
-  - Visual Studio Code settings: manual — use Settings Sync extension → https://gist.github.com/andreacipriani/1ba00e8f9773857f46eae2845f8e9ac8
-  - Alfred preferences: manual, no automation possible
+- Setup Alfred manually (preferences aren't automatable)
 
 ### Credits
 

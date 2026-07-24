@@ -1,13 +1,13 @@
 [user]
-	name = Andrea Cipriani
-	email = andreacipriani89@gmail.com
+	name = Telemaco Cipriani
+	email = telemacocipriani@gmail.com
 [color]
     diff = auto
 	status = auto
     branch = auto
     ui = true
 [core]
-	excludesfile = ~/code/acdotfiles/git/global/.gitignore
+	excludesfile = ~/code/github/acdotfiles/git/global/.gitignore
 	editor = $EDITOR -n -w
 [apply]
     whitespace = nowarn
