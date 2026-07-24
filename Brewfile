@@ -43,6 +43,7 @@ brew "mise"
 cask 'alfred'
 cask 'telegram'
 cask 'rectangle'
+cask 'visual-studio-code'
 
 # Fonts (bullet-train prompt theme needs a Powerline/Nerd Font for its
 # segment separators and icons — without it the prompt shows gaps/tofu)
