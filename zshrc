@@ -1,5 +1,4 @@
-export ANDREA_USERNAME=$(whoami)
-export DOTFILES=$HOME/code/acdotfiles
+export DOTFILES="$(dirname "$(readlink "$HOME/.zshrc")")"
 export ZSH=$DOTFILES/oh-my-zsh
 export CODE=~/code
 export EDITOR='code'
