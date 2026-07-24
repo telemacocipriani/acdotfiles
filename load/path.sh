@@ -7,6 +7,9 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # Personal scripts
 export PATH="$DOTFILES/bin:$PATH"
 
+# ~/.local/bin (e.g. the Claude Code CLI native installer)
+export PATH="$HOME/.local/bin:$PATH"
+
 # Homebrew
 if [[ -f /opt/homebrew/bin/brew ]]; then
   eval $(/opt/homebrew/bin/brew shellenv)
