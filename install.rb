@@ -40,7 +40,7 @@ if File.exist?("Gemfile")
     puts "Installing gems from Gemfile".info
     File.readlines("Gemfile").each do |line|
         gem_name = line.strip
-        next if gem_name.empty?
+        next if gem_name.empty? || gem_name.start_with?("#")
         system("gem", "install", gem_name, "--no-document", "--user-install")
     end
 end
